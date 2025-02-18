@@ -455,7 +455,7 @@ OSSL_STORE_INFO *OSSL_STORE_load(OSSL_STORE_CTX *ctx)
             v = load_data.v;
         }
 #ifndef OPENSSL_NO_DEPRECATED_3_0
-        if (ctx->fetched_loader == NULL)
+        if (ctx->fetched_loader == NULL && ctx->loader != NULL)
             v = ctx->loader->load(ctx->loader_ctx,
                                   ctx->pwdata._.ui_method.ui_method,
                                   ctx->pwdata._.ui_method.ui_method_data);
